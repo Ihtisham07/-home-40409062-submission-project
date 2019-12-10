@@ -1,0 +1,28 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+<body>
+  <div class = 'hp'>
+    <h4> Register </h4>
+    <br>
+    {% from "_formhelpers.html" import render_field %}
+    <form method=post action="/register/">
+    <dl>
+          {{render_field(form.username)}}
+          {{render_field(form.email)}}
+          {{render_field(form.password)}}
+          {{render_field(form.confrim)}}
+          {{render_field(form.accept_tos)}}
+          </dl>
+          <p><imput type=submit value=Register</p>
+    </form>
+
+    {% if error %}
+    <p class = "error"> <strong>ERROR:</<strong>{{error}}</strong></p>
+    {% endif %}
+    </div>
+
+
+
+{% endblock %}
